@@ -22,8 +22,10 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mta)
+
         toolbarAdd.title = title
-        setSupportActionBar(toolbarAdd)
+        //setSupportActionBar(toolbarAdd)
+
         info("Placemark Activity started..")
 
         app = application as MainApp

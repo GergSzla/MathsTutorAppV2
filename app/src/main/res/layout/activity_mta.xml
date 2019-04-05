@@ -22,8 +22,10 @@
             <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbarAdd"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:titleTextColor="@color/colorPrimary" />
+                    android:layout_height="0dp"
+                    app:titleTextColor="@color/colorPrimary"
+                    android:layout_alignTop="@+id/appBarLayout"/>
+
         </android.support.design.widget.AppBarLayout>
 
         <ScrollView

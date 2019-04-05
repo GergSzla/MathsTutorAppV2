@@ -14,7 +14,7 @@ interface MTAListener {
 }
 
 class MTAAdapter constructor(private var challenges: List<MTAModel>,
-                                   private val listener: MTAListener) : RecyclerView.Adapter<MTAAdapter.MainHolder>() {
+                             private val listener: MTAListener) : RecyclerView.Adapter<MTAAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_mta, parent, false))

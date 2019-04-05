@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
@@ -21,8 +22,9 @@ class MTAListActivity : AppCompatActivity(), MTAListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mta_list)
         app = application as MainApp
+
         toolbarMain.title = title
-        setSupportActionBar(toolbarMain)
+        //setSupportActionBar(toolbarMain)
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
