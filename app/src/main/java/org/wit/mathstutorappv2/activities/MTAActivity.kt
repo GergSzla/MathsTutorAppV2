@@ -5,12 +5,17 @@ import android.os.Bundle
 import org.wit.mathstutorappv2.R
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_mta.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 import org.wit.mathstutorappv2.main.MainApp
 import org.wit.mathstutorappv2.models.MTAModel
+
 
 class MTAActivity : AppCompatActivity(), AnkoLogger {
 
@@ -23,6 +28,8 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mta)
 
+
+
         toolbarAdd.title = title
         //setSupportActionBar(toolbarAdd)
 
@@ -30,20 +37,63 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
 
         app = application as MainApp
 
+        radio_group_type.setOnCheckedChangeListener(
+            RadioGroup.OnCheckedChangeListener { group, checkedId ->
+                val radio: RadioButton = findViewById(checkedId)
+                Toast.makeText(applicationContext," Type changed to : ${radio.text}",
+                    Toast.LENGTH_SHORT).show()
+            })
+
         if (intent.hasExtra("placemark_edit")) {
             edit = true
             challenge = intent.extras.getParcelable<MTAModel>("placemark_edit")
-            placemarkTitle.setText(challenge.title)
-            description.setText(challenge.description)
 
-            btnAdd.setText(R.string.save_placemark)
+            var id: Int = radio_group_type.checkedRadioButtonId
+            if (id!=-1){ // If any radio button checked from radio group
+                // Get the instance of radio button using id
+                val radio:RadioButton = findViewById(id)
+                Toast.makeText(applicationContext,"Challenge Type : ${radio.text}",
+                    Toast.LENGTH_SHORT).show()
+                challenge.type = radio.text.toString()
+
+
+            }else{
+                // If no radio button checked in this radio group
+                Toast.makeText(applicationContext,"Challenge Type : nothing selected",
+                    Toast.LENGTH_SHORT).show()
+            }
+            challengeName.setText(challenge.name)
+            challengeMinNum.setText(challenge.minNum)
+            challengeMaxNum.setText(challenge.maxNum)
+
+
+            btnAdd.setText(R.string.save_challenge)
         }
 
+
         btnAdd.setOnClickListener() {
-            challenge.title = placemarkTitle.text.toString()
-            challenge.description = description.text.toString()
-            if (challenge.title.isEmpty()) {
-                toast(R.string.enter_placemark_title)
+
+            var id: Int = radio_group_type.checkedRadioButtonId
+            if (id!=-1){ // If any radio button checked from radio group
+                // Get the instance of radio button using id
+                val radio:RadioButton = findViewById(id)
+                Toast.makeText(applicationContext,"Challenge Type : ${radio.text}",
+                    Toast.LENGTH_SHORT).show()
+                challenge.type = radio.text.toString()
+
+            }else{
+                // If no radio button checked in this radio group
+                Toast.makeText(applicationContext,"Challenge Type : nothing selected",
+                    Toast.LENGTH_SHORT).show()
+            }
+
+            challenge.name = challengeName.text.toString()
+            challenge.minNum = challengeMinNum.text.toString()
+            challenge.maxNum = challengeMaxNum.text.toString()
+
+
+            if (challenge.name.isEmpty()) {
+                toast(R.string.enter_challenge_name)
             } else {
                 if (edit) {
                     app.challenges.update(challenge.copy())
@@ -52,11 +102,17 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
                     app.challenges.create(challenge.copy())
                 }
             }
-            info("add Button Pressed: $placemarkTitle")
+            info("add Button Pressed: $challengeName")
             setResult(AppCompatActivity.RESULT_OK)
             finish()
         }
 
+        fun radio_button_click(view: View){
+            // Get the clicked radio button instance
+            val radio: RadioButton = findViewById(radio_group_type.checkedRadioButtonId)
+            Toast.makeText(applicationContext,"On click : ${radio.text}",
+                Toast.LENGTH_SHORT).show()
+        }
 
 
 

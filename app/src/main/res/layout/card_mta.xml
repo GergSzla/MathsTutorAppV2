@@ -20,18 +20,44 @@
                 android:layout_marginRight="16dp"/>
 
         <TextView
-                android:id="@+id/placemarkTitle"
+                android:id="@+id/challengeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/imageIcon"
                 android:textSize="30sp"/>
-
         <TextView
-                android:id="@+id/description"
+                android:id="@+id/min"
+                android:text="@string/card_challengeMinNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/placemarkTitle"
+                android:layout_below="@id/challengeName"
+                android:layout_toRightOf="@+id/imageIcon"/>
+        <TextView
+                android:id="@+id/challengeMinNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/challengeName"
+                android:layout_toRightOf="@+id/min"/>
+
+        <TextView
+                android:id="@+id/max"
+                android:text="@string/card_challengeMaxNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/min"
+                android:layout_toRightOf="@+id/imageIcon"/>
+        <TextView
+                android:id="@+id/challengeMaxNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/challengeMinNum"
+                android:layout_toRightOf="@+id/max"/>
+        <TextView
+                android:id="@+id/challengeType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/challengeMaxNum"
                 android:layout_toRightOf="@+id/imageIcon"/>
 
     </RelativeLayout>

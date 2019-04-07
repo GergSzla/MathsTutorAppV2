@@ -26,8 +26,11 @@ class MTAMemStore : MTAStore, AnkoLogger {
     override fun update(challenge: MTAModel) {
         var foundChallenge: MTAModel? = challenges.find { p -> p.id == challenge.id }
         if (foundChallenge != null) {
-            foundChallenge.title = challenge.title
-            foundChallenge.description = challenge.description
+            foundChallenge.name = challenge.name
+            foundChallenge.minNum = challenge.minNum
+            foundChallenge.maxNum = challenge.maxNum
+            foundChallenge.type = challenge.type
+
 
             logAll()
         }

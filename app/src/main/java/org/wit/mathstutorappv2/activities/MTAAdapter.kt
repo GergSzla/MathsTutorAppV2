@@ -30,8 +30,11 @@ class MTAAdapter constructor(private var challenges: List<MTAModel>,
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(challenge: MTAModel, listener: MTAListener) {
-            itemView.placemarkTitle.text = challenge.title
-            itemView.description.text = challenge.description
+            itemView.challengeName.text = challenge.name
+            itemView.challengeMinNum.text = challenge.minNum
+            itemView.challengeMaxNum.text = challenge.maxNum
+            itemView.challengeType.text = challenge.type
+
             itemView.setOnClickListener { listener.onMTAClick(challenge) }
         }
     }

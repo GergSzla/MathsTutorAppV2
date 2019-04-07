@@ -1,12 +1,29 @@
 <resources>
+
     <string name="app_name">Maths Tutor</string>
-    <string name="hint_placemarkTitle">Placemark Title</string>
-    <string name="hint_placemarkDescription">Description </string>
+
+    <!--add challenge/activity_mta-->
+    <string name="hint_challengeName">Challenge Name</string>
+    <string name="hint_challengeMinNum">Minimum Number </string>
+    <string name="hint_challengeMaxNum">Maximum Number </string>
+    <string name="radio_addition">Addition (+)</string>
+    <string name="radio_subtraction">Subtraction (-)</string>
+    <string name="radio_division">Division (÷)</string>
+    <string name="radio_multiplication">Multiplication (×)</string>
+    <string name="radio_type_title">Choose A Challenge Type: </string>
+
+
+    <!--card-->
+    <string name="card_challengeMinNum">Minimum Number: </string>
+    <string name="card_challengeMaxNum">Maximum Number: </string>
+
+
+
     <string name="button_addPlacemark">Add Placemark</string>
     <string name="menu_addPlacemark">Add</string>
     <string name="menu_cancelPlacemark">Cancel</string>
-    <string name="enter_placemark_title"> Please enter a Placemark Title </string>
-    <string name="save_placemark"> Save Placemark </string>
+    <string name="enter_challenge_name"> Please enter a Challenge Name </string>
+    <string name="save_challenge"> Save Challenge </string>
     <string name="button_addImage"> Add Image </string>
     <string name="select_placemark_image">Select placemark image</string>
     <string name="change_placemark_image">Change placemark image</string>
