@@ -19,17 +19,17 @@
 
 
 
-    <string name="button_addPlacemark">Add Placemark</string>
-    <string name="menu_addPlacemark">Add</string>
-    <string name="menu_cancelPlacemark">Cancel</string>
+    <string name="button_addChallenge">Add Challenge</string>
+    <string name="menu_addChallenge">Add</string>
+    <string name="menu_cancelChallenge">Cancel</string>
     <string name="enter_challenge_name"> Please enter a Challenge Name </string>
     <string name="save_challenge"> Save Challenge </string>
     <string name="button_addImage"> Add Image </string>
-    <string name="select_placemark_image">Select placemark image</string>
-    <string name="change_placemark_image">Change placemark image</string>
+    <string name="select_challenge_image">Select challenge image</string>
+    <string name="change_challenege_image">Change challenge image</string>
     <string name="button_location">Set Location</string>
     <string name="title_activity_maps">Map</string>
-    <string name="menu_deletePlacemark">Delete</string>
+    <string name="menu_deleteChallenge">Delete</string>
     <string name="title_activity_placemark_maps">Map of all Placemarks</string>
 
 </resources>

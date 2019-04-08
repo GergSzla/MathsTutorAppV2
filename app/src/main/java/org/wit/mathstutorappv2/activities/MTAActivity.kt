@@ -37,6 +37,35 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
 
         app = application as MainApp
 
+        if (app.challenges.findAll().isEmpty()) {
+            //default challenges
+            //default addition
+            challenge.name = "Addition"
+            challenge.minNum = "1"
+            challenge.maxNum = "100"
+            app.challenges.create(challenge.copy())
+
+            //default subtraction
+            challenge.name = "Subtraction"
+            challenge.minNum = "1"
+            challenge.maxNum = "100"
+            app.challenges.create(challenge.copy())
+
+            //default division
+            challenge.name = "Division"
+            challenge.minNum = "1"
+            challenge.maxNum = "100"
+            app.challenges.create(challenge.copy())
+
+            //default multiplication
+            challenge.name = "Multiplication"
+            challenge.minNum = "1"
+            challenge.maxNum = "100"
+            app.challenges.create(challenge.copy())
+        }
+
+
+
         radio_group_type.setOnCheckedChangeListener(
             RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 val radio: RadioButton = findViewById(checkedId)
@@ -91,7 +120,6 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             challenge.minNum = challengeMinNum.text.toString()
             challenge.maxNum = challengeMaxNum.text.toString()
 
-
             if (challenge.name.isEmpty()) {
                 toast(R.string.enter_challenge_name)
             } else {
@@ -117,6 +145,8 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
 
 
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_mta, menu)

@@ -30,6 +30,7 @@ class MTAMemStore : MTAStore, AnkoLogger {
             foundChallenge.minNum = challenge.minNum
             foundChallenge.maxNum = challenge.maxNum
             foundChallenge.type = challenge.type
+            foundChallenge.image = challenge.image
 
 
             logAll()
