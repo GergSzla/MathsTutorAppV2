@@ -12,6 +12,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".activities.MTAActivity"/>
+        <activity android:name=".activities.MTAStatsActivity"/>
+        <activity android:name=".activities.MTAYoutubeActivity"/>
+
         <activity android:name=".activities.MTAListActivity">
 
             <intent-filter>

@@ -9,6 +9,7 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta_list.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
 import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.main.MainApp
@@ -49,6 +50,8 @@ class MTAListActivity : AppCompatActivity(), MTAListener {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_add -> startActivityForResult<MTAActivity>(0)
+            R.id.page_stats -> startActivity<MTAStatsActivity>()
+            R.id.youtube_videos -> startActivity<MTAYoutubeActivity>()
         }
         return super.onOptionsItemSelected(item)
     }

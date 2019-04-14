@@ -17,10 +17,17 @@
     <string name="card_challengeMinNum">Minimum Number: </string>
     <string name="card_challengeMaxNum">Maximum Number: </string>
 
+    <!--Begin Challenge Button-->
+    <string name="button_startChallenge">Start</string>
 
 
     <string name="button_addChallenge">Add Challenge</string>
     <string name="menu_addChallenge">Add</string>
+    <string name="menu_stats">Statistics</string>
+    <string name="menu_youtube">Videos</string>
+    <string name="menu_back">Back</string>
+
+
     <string name="menu_cancelChallenge">Cancel</string>
     <string name="enter_challenge_name"> Please enter a Challenge Name </string>
     <string name="save_challenge"> Save Challenge </string>

@@ -6,6 +6,7 @@ import org.wit.mathstutorappv2.R
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -43,24 +44,28 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             challenge.name = "Addition"
             challenge.minNum = "1"
             challenge.maxNum = "100"
+            challenge.make = "default"
             app.challenges.create(challenge.copy())
 
             //default subtraction
             challenge.name = "Subtraction"
             challenge.minNum = "1"
             challenge.maxNum = "100"
+            challenge.make = "default"
             app.challenges.create(challenge.copy())
 
             //default division
             challenge.name = "Division"
             challenge.minNum = "1"
             challenge.maxNum = "100"
+            challenge.make = "default"
             app.challenges.create(challenge.copy())
 
             //default multiplication
             challenge.name = "Multiplication"
             challenge.minNum = "1"
             challenge.maxNum = "100"
+            challenge.make = "default"
             app.challenges.create(challenge.copy())
         }
 
@@ -96,6 +101,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             challengeMaxNum.setText(challenge.maxNum)
 
 
+
             btnAdd.setText(R.string.save_challenge)
         }
 
@@ -119,6 +125,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             challenge.name = challengeName.text.toString()
             challenge.minNum = challengeMinNum.text.toString()
             challenge.maxNum = challengeMaxNum.text.toString()
+            challenge.make = "custom"
 
             if (challenge.name.isEmpty()) {
                 toast(R.string.enter_challenge_name)

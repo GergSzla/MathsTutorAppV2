@@ -34,6 +34,7 @@ class MTAAdapter constructor(private var challenges: List<MTAModel>,
             itemView.challengeMinNum.text = challenge.minNum
             itemView.challengeMaxNum.text = challenge.maxNum
             itemView.challengeType.text = challenge.type
+            itemView.challengeMake.text = challenge.make
 
             itemView.setOnClickListener { listener.onMTAClick(challenge) }
         }

@@ -47,7 +47,7 @@ class MTAJSONStore : MTAStore, AnkoLogger {
             foundChallenge.minNum = challenge.minNum
             foundChallenge.maxNum = challenge.maxNum
             foundChallenge.type = challenge.type
-            foundChallenge.image = challenge.image
+            foundChallenge.make = challenge.make
 
         }
         serialize()

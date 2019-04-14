@@ -5,7 +5,7 @@
     <item
             android:id="@+id/youtube_videos"
             android:icon="@drawable/youtube_icon"
-            android:title="@string/menu_addChallenge"
+            android:title="@string/menu_youtube"
             app:showAsAction="always" />
 
     <item
@@ -14,8 +14,8 @@
             android:title="@string/menu_addChallenge"
             app:showAsAction="always" />
     <item
-            android:id="@+id/item_map"
+            android:id="@+id/page_stats"
             android:icon="@drawable/stats_icon"
-            android:title="@string/menu_addChallenge"
+            android:title="@string/menu_stats"
             app:showAsAction="always"/>
 </menu>
