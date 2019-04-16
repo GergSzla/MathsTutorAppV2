@@ -1,5 +1,6 @@
 package org.wit.mathstutorappv2.activities
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import org.wit.mathstutorappv2.R
@@ -11,6 +12,10 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_mta.*
+import kotlinx.android.synthetic.main.activity_mta.challengeMaxNum
+import kotlinx.android.synthetic.main.activity_mta.challengeMinNum
+import kotlinx.android.synthetic.main.activity_mta.challengeName
+import kotlinx.android.synthetic.main.card_mta.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
@@ -34,7 +39,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
         toolbarAdd.title = title
         //setSupportActionBar(toolbarAdd)
 
-        info("Placemark Activity started..")
+        info("MTA Activity started..")
 
         app = application as MainApp
 
@@ -67,6 +72,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             challenge.maxNum = "100"
             challenge.make = "default"
             app.challenges.create(challenge.copy())
+
         }
 
 
@@ -78,9 +84,9 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
                     Toast.LENGTH_SHORT).show()
             })
 
-        if (intent.hasExtra("placemark_edit")) {
+        if (intent.hasExtra("challenge_edit ")) {
             edit = true
-            challenge = intent.extras.getParcelable<MTAModel>("placemark_edit")
+            challenge = intent.extras.getParcelable<MTAModel>("challenge_edit ")
 
             var id: Int = radio_group_type.checkedRadioButtonId
             if (id!=-1){ // If any radio button checked from radio group
@@ -106,7 +112,9 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
         }
 
 
-        btnAdd.setOnClickListener() {
+
+
+        btnAdd.setOnClickListener {
 
             var id: Int = radio_group_type.checkedRadioButtonId
             if (id!=-1){ // If any radio button checked from radio group
@@ -140,7 +148,12 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             info("add Button Pressed: $challengeName")
             setResult(AppCompatActivity.RESULT_OK)
             finish()
+
         }
+
+
+
+
 
         fun radio_button_click(view: View){
             // Get the clicked radio button instance
@@ -151,7 +164,10 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
 
 
 
+
+
     }
+
 
 
 

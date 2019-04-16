@@ -13,10 +13,11 @@
 
 
         <Button
-                android:id="@+id/buttonStart"
+                android:id="@+id/btnStart"
                 android:text="@string/button_startChallenge"
                 android:layout_width="70dp"
                 android:layout_height="64dp"
+                android:stateListAnimator="@null"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="16dp"/>
@@ -26,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/buttonStart"
+                android:layout_toRightOf="@+id/btnStart"
                 android:textSize="30sp"/>
         <TextView
                 android:id="@+id/min"
@@ -34,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/challengeName"
-                android:layout_toRightOf="@+id/buttonStart" android:textStyle="bold"/>
+                android:layout_toRightOf="@+id/btnStart" android:textStyle="bold"/>
         <TextView
                 android:id="@+id/challengeMinNum"
                 android:layout_width="wrap_content"
@@ -48,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/min"
-                android:layout_toRightOf="@+id/buttonStart" android:textStyle="bold"/>
+                android:layout_toRightOf="@+id/btnStart" android:textStyle="bold"/>
         <TextView
                 android:id="@+id/challengeMaxNum"
                 android:layout_width="wrap_content"
@@ -60,12 +61,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/challengeMaxNum"
-                android:layout_toRightOf="@+id/buttonStart"/>
+                android:layout_toRightOf="@+id/btnStart"/>
         <TextView
                 android:id="@+id/challengeMake"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/buttonStart"
+                android:layout_below="@id/btnStart"
                 android:textStyle="bold|italic" android:textAllCaps="true"
                 android:textAlignment="textStart"
 

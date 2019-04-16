@@ -10,6 +10,7 @@ import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.models.MTAModel
 
 interface MTAListener {
+    fun onMTAHold(challenge: MTAModel)
     fun onMTAClick(challenge: MTAModel)
 }
 
@@ -36,7 +37,14 @@ class MTAAdapter constructor(private var challenges: List<MTAModel>,
             itemView.challengeType.text = challenge.type
             itemView.challengeMake.text = challenge.make
 
-            itemView.setOnClickListener { listener.onMTAClick(challenge) }
+            itemView.setOnLongClickListener {
+                listener.onMTAHold(challenge)
+                true
+            }
+
+            itemView.setOnClickListener {
+                listener.onMTAClick(challenge)
+            }
         }
     }
 }

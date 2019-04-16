@@ -25,7 +25,7 @@ class MTAYoutubeActivity: AppCompatActivity(), AnkoLogger {
 
 
     }
-    
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_views, menu)
         if (menu != null) menu.getItem(0).setVisible(true)
