@@ -17,10 +17,11 @@ fun generateRandomId(): Long {
     return Random().nextLong()
 }
 
-class MTAJSONStore : MTAStore, AnkoLogger {
+class MTAJSONStore : MTAStore, AnkoLogger, QuestionStore {
 
     val context: Context
     var challenges = mutableListOf<MTAModel>()
+    var questions = mutableListOf<Question>()
 
     constructor (context: Context) {
         this.context = context
@@ -33,9 +34,19 @@ class MTAJSONStore : MTAStore, AnkoLogger {
         return challenges
     }
 
+    override fun findAllQuestions(): MutableList<Question> {
+        return questions
+    }
+
+
     override fun create(challenge: MTAModel) {
         challenge.id = generateRandomId()
         challenges.add(challenge)
+        serialize()
+    }
+
+    override fun createQuestions(question: Question){
+        questions.add(question)
         serialize()
     }
 
@@ -55,6 +66,10 @@ class MTAJSONStore : MTAStore, AnkoLogger {
 
     override fun delete(challenge: MTAModel) {
         challenges.remove(challenge)
+        serialize()
+    }
+    override fun deleteQuestions (question: Question){
+        questions.remove(question)
         serialize()
     }
 
