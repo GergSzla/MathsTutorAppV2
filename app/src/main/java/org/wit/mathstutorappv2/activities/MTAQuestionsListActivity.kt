@@ -3,6 +3,8 @@ package org.wit.mathstutorappv2.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_mta_list.*
 import kotlinx.android.synthetic.main.activity_mta_list.toolbarMain
 import kotlinx.android.synthetic.main.activity_questions_list.*
@@ -10,6 +12,8 @@ import org.jetbrains.anko.longToast
 import org.wit.mathstutorappv2.main.MainApp
 import org.wit.mathstutorappv2.models.MTAModel
 import kotlinx.android.synthetic.main.card_challenge.*
+import org.jetbrains.anko.toast
+import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.models.Question
 import org.wit.mathstutorappv2.models.Supplier
 import org.wit.mathstutorappv2.models.Supplier.questions
@@ -41,24 +45,59 @@ class MTAQuestionsListActivity : AppCompatActivity(){
         if (intent.hasExtra("challenge_start ")) {
             app.challenges.findAll()
             challenge = intent.extras.getParcelable<MTAModel>("challenge_start ")
-            longToast("This will display the questions for the challenge : ${challenge.name} ")
+            app.questions.deleteQuestions(question) //if any questions are left in the list from another challenge, this clears it all to start from scratch
+            toast("${challenge.name} Started")
 
             var QMinNo = challenge.minNum
             var QMaxNo = challenge.maxNum
 
 
 
-
-
+            // q = 10 questions
+            for (q in 0 until 10) {
             var randomNumber1 = (QMinNo.toInt()..QMaxNo.toInt()).random()
             var randomNumber2 = (QMinNo.toInt()..QMaxNo.toInt()).random()
-            var QAnswer:Int
+            var QAnswer:Int //TODO: Calculate answer for each question.
 
-            question.noX = randomNumber1.toString()
-            question.symbol = challenge.type
-            question.noY = randomNumber2.toString()
-            app.questions.createQuestions(question.copy())
 
+                /*
+                this if statement converts the detailed type of the challenge symbol to a less complicated one
+                to be used for the questions. Thus the questions look more like maths and less like a sentence.
+                 */
+                if (challenge.type.contains("Addition (+)")){
+
+                    var  newSymbol = "+"
+
+                    question.noX = randomNumber1.toString()
+                    question.symbol = newSymbol
+                    question.noY = randomNumber2.toString()
+                    app.questions.createQuestions(question.copy())
+                } else if (challenge.type.contains("Subtraction (-)")){
+
+                    var  newSymbol = "-"
+
+                    question.noX = randomNumber1.toString()
+                    question.symbol = newSymbol
+                    question.noY = randomNumber2.toString()
+                    app.questions.createQuestions(question.copy())
+                } else if (challenge.type.contains("Division (÷)")){
+
+                    var  newSymbol = "÷"
+
+                    question.noX = randomNumber1.toString()
+                    question.symbol = newSymbol
+                    question.noY = randomNumber2.toString()
+                    app.questions.createQuestions(question.copy())
+                } else if (challenge.type.contains("Multiplication (×)")){
+
+                    var  newSymbol = "×"
+
+                    question.noX = randomNumber1.toString()
+                    question.symbol = newSymbol
+                    question.noY = randomNumber2.toString()
+                    app.questions.createQuestions(question.copy())
+                }
+            }
             loadQuestions()
 
 
@@ -86,7 +125,29 @@ class MTAQuestionsListActivity : AppCompatActivity(){
             recyclerViewQuestion.adapter?.notifyDataSetChanged()
 
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_challenge, menu)
+        if (menu != null) menu.getItem(0).setVisible(true)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.item_cancel -> {
+
+                app.questions.deleteQuestions(question)
+                finish()
+            }
+            R.id.item_finish -> {
+
+                app.questions.deleteQuestions(question)
+                finish()
+
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
 }

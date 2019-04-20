@@ -26,6 +26,9 @@
     <string name="menu_stats">Statistics</string>
     <string name="menu_youtube">Videos</string>
     <string name="menu_back">Back</string>
+    <string name="menu_finishChallenge">Finish</string>
+
+
 
 
     <string name="menu_cancelChallenge">Cancel</string>

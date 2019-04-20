@@ -12,22 +12,11 @@
             android:padding="16dp">
 
 
-        <Button
-                android:id="@+id/btnStart"
-                android:text="@string/button_startChallenge"
-                android:layout_width="70dp"
-                android:layout_height="64dp"
-                android:stateListAnimator="@null"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp"/>
-
         <TextView
                 android:id="@+id/challengeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/btnStart"
                 android:textSize="30sp"/>
         <TextView
                 android:id="@+id/min"
@@ -35,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/challengeName"
-                android:layout_toRightOf="@+id/btnStart" android:textStyle="bold"/>
+                android:textStyle="bold"/>
         <TextView
                 android:id="@+id/challengeMinNum"
                 android:layout_width="wrap_content"
@@ -49,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/min"
-                android:layout_toRightOf="@+id/btnStart" android:textStyle="bold"/>
+                android:textStyle="bold"/>
         <TextView
                 android:id="@+id/challengeMaxNum"
                 android:layout_width="wrap_content"
@@ -60,17 +49,17 @@
                 android:id="@+id/challengeType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/challengeMaxNum"
-                android:layout_toRightOf="@+id/btnStart"/>
+                android:layout_below="@id/challengeMaxNum"/>
         <TextView
                 android:id="@+id/challengeMake"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btnStart"
-                android:textStyle="bold|italic" android:textAllCaps="true"
+                android:textStyle="bold|italic"
+                android:textAllCaps="true"
                 android:textAlignment="textStart"
 
-                android:layout_marginRight="16dp"/>
+                android:layout_marginRight="16dp" android:layout_marginLeft="232dp" android:layout_alignParentEnd="true"
+                android:layout_marginEnd="22dp" android:layout_marginTop="75dp" android:layout_alignParentTop="true"/>
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

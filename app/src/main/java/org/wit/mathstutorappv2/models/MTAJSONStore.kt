@@ -47,7 +47,7 @@ class MTAJSONStore : MTAStore, AnkoLogger, QuestionStore {
 
     override fun createQuestions(question: Question){
         questions.add(question)
-        serialize()
+
     }
 
     override fun update(challenge: MTAModel) {
@@ -69,8 +69,8 @@ class MTAJSONStore : MTAStore, AnkoLogger, QuestionStore {
         serialize()
     }
     override fun deleteQuestions (question: Question){
-        questions.remove(question)
-        serialize()
+        questions.clear()
+
     }
 
     private fun serialize() {
