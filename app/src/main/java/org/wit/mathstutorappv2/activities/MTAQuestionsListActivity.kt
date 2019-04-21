@@ -17,6 +17,7 @@ import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.models.Question
 import org.wit.mathstutorappv2.models.Supplier
 import org.wit.mathstutorappv2.models.Supplier.questions
+import java.lang.reflect.Array
 import java.util.Collections.list
 import java.util.Collections.newSetFromMap
 
@@ -55,9 +56,10 @@ class MTAQuestionsListActivity : AppCompatActivity(){
 
             // q = 10 questions
             for (q in 0 until 10) {
-            var randomNumber1 = (QMinNo.toInt()..QMaxNo.toInt()).random()
-            var randomNumber2 = (QMinNo.toInt()..QMaxNo.toInt()).random()
-            var QAnswer:Int //TODO: Calculate answer for each question.
+                var randomNumber1 = (QMinNo.toInt()..QMaxNo.toInt()).random()
+                var randomNumber2 = (QMinNo.toInt()..QMaxNo.toInt()).random()
+
+                var QAnswer:Int //TODO: Calculate answer for each question.
 
 
                 /*
@@ -68,33 +70,42 @@ class MTAQuestionsListActivity : AppCompatActivity(){
 
                     var  newSymbol = "+"
 
+                    question.id +=1
                     question.noX = randomNumber1.toString()
                     question.symbol = newSymbol
                     question.noY = randomNumber2.toString()
+                    question.questionAnswer = randomNumber1 + randomNumber2
                     app.questions.createQuestions(question.copy())
+
                 } else if (challenge.type.contains("Subtraction (-)")){
 
                     var  newSymbol = "-"
 
+                    question.id +=1
                     question.noX = randomNumber1.toString()
                     question.symbol = newSymbol
                     question.noY = randomNumber2.toString()
+                    question.questionAnswer = randomNumber1 - randomNumber2
                     app.questions.createQuestions(question.copy())
                 } else if (challenge.type.contains("Division (÷)")){
 
                     var  newSymbol = "÷"
 
+                    question.id +=1
                     question.noX = randomNumber1.toString()
                     question.symbol = newSymbol
                     question.noY = randomNumber2.toString()
+                    question.questionAnswer = randomNumber1 / randomNumber2
                     app.questions.createQuestions(question.copy())
                 } else if (challenge.type.contains("Multiplication (×)")){
 
                     var  newSymbol = "×"
 
+                    question.id +=1
                     question.noX = randomNumber1.toString()
                     question.symbol = newSymbol
                     question.noY = randomNumber2.toString()
+                    question.questionAnswer = randomNumber1 * randomNumber2
                     app.questions.createQuestions(question.copy())
                 }
             }
@@ -115,14 +126,16 @@ class MTAQuestionsListActivity : AppCompatActivity(){
 
 
         }
+
+
         private fun loadQuestions() {
             showQuestions(app.questions.findAllQuestions())
-
         }
 
         fun showQuestions(questions: List<Question>) {
             recyclerViewQuestion.adapter = QuestionsAdapter(this, questions )
             recyclerViewQuestion.adapter?.notifyDataSetChanged()
+
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -139,9 +152,9 @@ class MTAQuestionsListActivity : AppCompatActivity(){
                 finish()
             }
             R.id.item_finish -> {
+                //app.questions.deleteQuestions(question)
 
-                app.questions.deleteQuestions(question)
-                finish()
+                //finish()
 
 
             }

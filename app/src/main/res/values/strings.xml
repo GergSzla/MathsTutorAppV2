@@ -42,4 +42,10 @@
     <string name="menu_deleteChallenge">Delete</string>
     <string name="title_activity_placemark_maps">Map of all Placemarks</string>
 
+    <string name="btn_ytAddition">Play Addition Playlist</string>
+    <string name="btn_ytSubtraction">Play Subtraction Playlist</string>
+    <string name="btn_ytDivision">Play Division Playlist</string>
+    <string name="btn_ytMultiplication">Play Multiplication Playlist</string>
+    <string name="btnStop">Stop</string>
+
 </resources>

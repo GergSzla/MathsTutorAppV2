@@ -48,7 +48,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             //default addition
             challenge.name = "Addition"
             challenge.minNum = "1"
-            challenge.maxNum = "100"
+            challenge.maxNum = "400"
             challenge.type = "Addition (+)"
             challenge.make = "default"
             app.challenges.create(challenge.copy())
@@ -64,7 +64,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             //default division
             challenge.name = "Division"
             challenge.minNum = "1"
-            challenge.maxNum = "100"
+            challenge.maxNum = "70"
             challenge.type = "Division (÷)"
             challenge.make = "default"
             app.challenges.create(challenge.copy())
@@ -72,7 +72,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             //default multiplication
             challenge.name = "Multiplication"
             challenge.minNum = "1"
-            challenge.maxNum = "100"
+            challenge.maxNum = "50"
             challenge.type = "Multiplication (×)"
             challenge.make = "default"
             app.challenges.create(challenge.copy())

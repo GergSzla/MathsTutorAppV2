@@ -27,6 +27,7 @@ class QuestionsAdapter(val context: Context, val questions: List<Question>) : Re
     }
     inner class questionsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun setData(question: Question?, pos:Int) {
+            itemView.questionNo.text = question!!.id.toString()+".)"
             itemView.numberX.text = question!!.noX
             itemView.symbol.text = question!!.symbol
             itemView.numberY.text = question!!.noY
