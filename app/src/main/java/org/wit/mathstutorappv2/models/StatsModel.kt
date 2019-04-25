@@ -4,7 +4,11 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class StatsModel (var addResultAvg: String ="",
+data class StatsModel (
+                  var totalScore:Int = 0,
+                  var sessionsTaken:Int = 0,
+
+                  var addResultAvg: String ="",
                   var subResultAvg: String ="",
                   var divResultAvg: String ="",
                   var multResultAvg: String ="",

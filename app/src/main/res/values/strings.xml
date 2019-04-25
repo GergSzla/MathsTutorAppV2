@@ -4,8 +4,8 @@
 
     <!--add challenge/activity_mta-->
     <string name="hint_challengeName">Challenge Name</string>
-    <string name="hint_challengeMinNum">Minimum Number </string>
-    <string name="hint_challengeMaxNum">Maximum Number </string>
+    <string name="hint_challengeMinNum">Minimum Number (0 - 500) </string>
+    <string name="hint_challengeMaxNum">Maximum Number (Your Minimum Number - 4999)</string>
     <string name="radio_addition">Addition (+)</string>
     <string name="radio_subtraction">Subtraction (-)</string>
     <string name="radio_division">Division (÷)</string>
@@ -32,11 +32,8 @@
 
 
     <string name="menu_cancelChallenge">Cancel</string>
-    <string name="enter_challenge_name"> Please enter a Challenge Name </string>
+    <string name="enter_challenge_name_num"> Challenge name, Challenge type, Minimum and Maximum numbers cannot be blank!</string>
     <string name="save_challenge"> Save Challenge </string>
-    <string name="button_addImage"> Add Image </string>
-    <string name="select_challenge_image">Select challenge image</string>
-    <string name="change_challenege_image">Change challenge image</string>
     <string name="button_location">Set Location</string>
     <string name="title_activity_maps">Map</string>
     <string name="menu_deleteChallenge">Delete</string>

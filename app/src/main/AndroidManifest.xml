@@ -15,6 +15,7 @@
         <activity android:name=".activities.MTAActivity"/>
         <activity android:name=".activities.MTAStatsActivity"/>
         <activity android:name=".activities.MTAQuestionsListActivity"/>
+        <activity android:name=".activities.ResultsAddActivity"/>
 
 
         <activity android:name=".activities.MTAListActivity">

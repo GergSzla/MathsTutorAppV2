@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.card_challenge.view.*
 import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.models.Question
-import org.wit.mathstutorappv2.models.Supplier.questions
+//import org.wit.mathstutorappv2.models.Supplier.questions
 
 class QuestionsAdapter(val context: Context, val questions: List<Question>) : RecyclerView.Adapter<QuestionsAdapter.questionsViewHolder>() {
 
@@ -31,7 +31,7 @@ class QuestionsAdapter(val context: Context, val questions: List<Question>) : Re
             itemView.numberX.text = question!!.noX
             itemView.symbol.text = question!!.symbol
             itemView.numberY.text = question!!.noY
-            //itemView.challengeAnswer.text = question.answer ---> Get user input + Compare to actual answer
+            itemView.challengeAnswer.text = question!!.questionAnswer.toString()
         }
 
     }

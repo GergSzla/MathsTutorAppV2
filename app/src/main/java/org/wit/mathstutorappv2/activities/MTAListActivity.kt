@@ -22,6 +22,8 @@ import kotlinx.android.synthetic.main.card_mta.challengeName as challengeName1
 class MTAListActivity : AppCompatActivity(), MTAListener {
 
     lateinit var app: MainApp
+    var challenge = MTAModel()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +46,42 @@ class MTAListActivity : AppCompatActivity(), MTAListener {
 
 
     private fun loadChallenges() {
+
+        if (app.challenges.findAll().isEmpty()) {
+            //default challenges
+            //default addition
+            challenge.name = "Addition"
+            challenge.minNum = "1"
+            challenge.maxNum = "400"
+            challenge.type = "Addition (+)"
+            challenge.make = "default"
+            app.challenges.create(challenge.copy())
+
+            //default subtraction
+            challenge.name = "Subtraction"
+            challenge.minNum = "1"
+            challenge.maxNum = "100"
+            challenge.type = "Subtraction (-)"
+            challenge.make = "default"
+            app.challenges.create(challenge.copy())
+
+            //default division
+            challenge.name = "Division"
+            challenge.minNum = "1"
+            challenge.maxNum = "70"
+            challenge.type = "Division (÷)"
+            challenge.make = "default"
+            app.challenges.create(challenge.copy())
+
+            //default multiplication
+            challenge.name = "Multiplication"
+            challenge.minNum = "1"
+            challenge.maxNum = "50"
+            challenge.type = "Multiplication (×)"
+            challenge.make = "default"
+            app.challenges.create(challenge.copy())
+
+        }
         showChallenges( app.challenges.findAll())
 
     }

@@ -1,13 +1,11 @@
 package org.wit.mathstutorappv2.activities
 
-import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import org.wit.mathstutorappv2.R
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -15,9 +13,9 @@ import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta.challengeMaxNum
 import kotlinx.android.synthetic.main.activity_mta.challengeMinNum
 import kotlinx.android.synthetic.main.activity_mta.challengeName
-import kotlinx.android.synthetic.main.card_mta.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import org.wit.mathstutorappv2.main.MainApp
 import org.wit.mathstutorappv2.models.MTAModel
@@ -43,41 +41,6 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
 
         app = application as MainApp
 
-        if (app.challenges.findAll().isEmpty()) {
-            //default challenges
-            //default addition
-            challenge.name = "Addition"
-            challenge.minNum = "1"
-            challenge.maxNum = "400"
-            challenge.type = "Addition (+)"
-            challenge.make = "default"
-            app.challenges.create(challenge.copy())
-
-            //default subtraction
-            challenge.name = "Subtraction"
-            challenge.minNum = "1"
-            challenge.maxNum = "100"
-            challenge.type = "Subtraction (-)"
-            challenge.make = "default"
-            app.challenges.create(challenge.copy())
-
-            //default division
-            challenge.name = "Division"
-            challenge.minNum = "1"
-            challenge.maxNum = "70"
-            challenge.type = "Division (÷)"
-            challenge.make = "default"
-            app.challenges.create(challenge.copy())
-
-            //default multiplication
-            challenge.name = "Multiplication"
-            challenge.minNum = "1"
-            challenge.maxNum = "50"
-            challenge.type = "Multiplication (×)"
-            challenge.make = "default"
-            app.challenges.create(challenge.copy())
-
-        }
 
 
 
@@ -134,13 +97,30 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
                     Toast.LENGTH_SHORT).show()
             }
 
+
             challenge.name = challengeName.text.toString()
             challenge.minNum = challengeMinNum.text.toString()
             challenge.maxNum = challengeMaxNum.text.toString()
             challenge.make = "custom"
 
-            if (challenge.name.isEmpty()) {
-                toast(R.string.enter_challenge_name)
+            if(challenge.minNum.toInt() < 0  || challenge.minNum.toInt() > 500 ){
+                var maxMinNum = 500
+                challenge.minNum = maxMinNum.toString()
+                longToast("Minimum number/range cannot exceed 500! \nNOTE: Minimum number auto-set to: 500")
+            }
+            if(challenge.maxNum.toInt() <= challenge.minNum.toInt()){
+                var minMaxNum = challenge.minNum.toInt() + 20
+                challenge.maxNum = minMaxNum.toString()
+                longToast("Maximum number/range cannot be less than minimum number! \nNOTE: Maximum number has been set to ${challenge.maxNum} ")
+            }
+            if(challenge.maxNum.toInt() > 5000 ){
+                var maxMaxNum = 5000
+                challenge.maxNum = maxMaxNum.toString()
+                longToast("Maximum number/range cannot exceed 5000! \nNOTE: Maximum number auto-set to: 5000")
+            }
+
+            if (challenge.name.isEmpty() || challenge.minNum.isEmpty() || challenge.maxNum.isEmpty() || challenge.type.isEmpty()) {
+                toast(R.string.enter_challenge_name_num)
             } else {
                 if (edit) {
                     app.challenges.update(challenge.copy())
