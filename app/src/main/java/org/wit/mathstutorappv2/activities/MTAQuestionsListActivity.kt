@@ -7,10 +7,12 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_mta_list.toolbarMain
 import kotlinx.android.synthetic.main.activity_questions_list.*
+import kotlinx.android.synthetic.main.activity_results_add.*
 import org.jetbrains.anko.longToast
 import org.wit.mathstutorappv2.main.MainApp
 import org.wit.mathstutorappv2.models.MTAModel
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.models.Question
 import kotlin.String as String1

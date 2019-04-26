@@ -29,7 +29,7 @@ class ResultsAddActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
 
         btnAddScore.setOnClickListener {
-
+            toast("Button Pressed")
         }
     }
 
