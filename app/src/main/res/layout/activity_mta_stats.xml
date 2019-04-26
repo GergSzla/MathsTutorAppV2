@@ -71,11 +71,8 @@
             </TableRow>
 
             <!--Dividing Line-->
-            <vip.frendy.chart.EChartView
-                    android:layout_marginTop="20dp"
-                    android:layout_width="168dp"
-                    android:layout_height="152dp"
-            />
+
+
             <View
                     android:layout_marginTop="50dp"
                     android:id="@+id/divider"
@@ -134,9 +131,10 @@
 
             <vip.frendy.chart.EChartView
                     android:layout_marginTop="20dp"
-                    android:layout_width="168dp"
-                    android:layout_height="152dp"
-            />
+                    android:layout_width="match_parent"
+                    android:layout_height="519dp"
+                    android:id="@+id/chartView">
+            </vip.frendy.chart.EChartView>
 
         </LinearLayout>
 

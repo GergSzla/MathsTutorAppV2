@@ -31,7 +31,8 @@
                 android:name="com.google.android.youtube.API_KEY"
                 android:value="@string/youtube_key" />
 
-        <activity android:name=".activities.MTAYoutubeActivity"/>
+        <activity android:name=".activities.MTAYoutubeActivity"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
