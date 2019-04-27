@@ -8,6 +8,7 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_mta_list.toolbarMain
 import kotlinx.android.synthetic.main.activity_questions_list.*
 import kotlinx.android.synthetic.main.activity_results_add.*
+import kotlinx.android.synthetic.main.card_challenge.*
 import org.jetbrains.anko.longToast
 import org.wit.mathstutorappv2.main.MainApp
 import org.wit.mathstutorappv2.models.MTAModel
@@ -46,7 +47,7 @@ class MTAQuestionsListActivity : AppCompatActivity() {
             app.challenges.findAll()
             challenge = intent.extras.getParcelable<MTAModel>("challenge_start ")
             app.questions.deleteQuestions(question) //if any questions are left in the list from another challenge, this clears it all to start from scratch
-            longToast("${challenge.name} Started! \nWrite down your answers on paper. \nCompare your answers to the answers given! \nKeep your scores!")
+            longToast("${challenge.name} Started!")
 
             var QMinNo = challenge.minNum
             var QMaxNo = challenge.maxNum
@@ -82,7 +83,7 @@ class MTAQuestionsListActivity : AppCompatActivity() {
                     question.noX = randomNumber1.toString()
                     question.symbol = newSymbol
                     question.noY = randomNumber2.toString()
-                    question.questionAnswer = randomNumber2.toDouble() - randomNumber1.toDouble()
+                    question.questionAnswer = randomNumber1.toDouble() - randomNumber2.toDouble()
                     app.questions.createQuestions(question.copy())
 
                 } else if (challenge.type.contains("Division (÷)")) {
@@ -93,7 +94,7 @@ class MTAQuestionsListActivity : AppCompatActivity() {
                     question.noX = randomNumber1.toString()
                     question.symbol = newSymbol
                     question.noY = randomNumber2.toString()
-                    question.questionAnswer = randomNumber2.toDouble() / randomNumber1.toDouble()
+                    question.questionAnswer = randomNumber1.toDouble() / randomNumber2.toDouble()
                     app.questions.createQuestions(question.copy())
 
                 } else if (challenge.type.contains("Multiplication (×)")) {
@@ -106,9 +107,13 @@ class MTAQuestionsListActivity : AppCompatActivity() {
                     question.noY = randomNumber2.toString()
                     question.questionAnswer = randomNumber1.toDouble() * randomNumber2.toDouble()
                     app.questions.createQuestions(question.copy())
+
+
                 }
+
             }
             loadQuestions()
+
 
 
             // q = 10 questions

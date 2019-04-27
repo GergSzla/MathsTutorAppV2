@@ -32,6 +32,7 @@
 
     </LinearLayout>
     <LinearLayout
+            android:background="#9C4580F5"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -49,9 +50,10 @@
                 android:inputType="number"
                 android:hint="Your Score Out Of 10"
                 android:ems="10"
-                android:id="@+id/txtScore" android:textAlignment="center"/>
+                android:id="@+id/txtScore" android:textAlignment="center" android:background="#CACACA"/>
         <Button
                 android:text="Save Your Score"
+                android:background="#C06503"
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

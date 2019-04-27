@@ -9,9 +9,10 @@ import org.jetbrains.anko.AnkoLogger
 import org.wit.mathstutorappv2.helpers.*
 import java.util.*
 
-val JSON_FILE = "placemarks.json"
+val JSON_FILE = "maths.json"
 val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
 val listType = object : TypeToken<java.util.ArrayList<MTAModel>>() {}.type
+
 
 fun generateRandomId(): Long {
     return Random().nextLong()
@@ -37,6 +38,7 @@ class MTAJSONStore : MTAStore, AnkoLogger, QuestionStore {
     override fun findAllQuestions(): MutableList<Question> {
         return questions
     }
+
 
 
     override fun create(challenge: MTAModel) {
@@ -78,8 +80,11 @@ class MTAJSONStore : MTAStore, AnkoLogger, QuestionStore {
         write(context, JSON_FILE, jsonString)
     }
 
+
     private fun deserialize() {
         val jsonString = read(context, JSON_FILE)
         challenges = Gson().fromJson(jsonString, listType)
     }
 }
+
+

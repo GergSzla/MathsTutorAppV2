@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:elevation="24dp">
@@ -9,7 +9,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="16dp" android:background="#9C4580F5">
 
 
         <TextView
@@ -17,7 +17,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" android:fontFamily="@font/baloo"
+                android:textColor="#000000" android:text="Test"/>
         <TextView
                 android:id="@+id/min"
                 android:text="@string/card_challengeMinNum"
@@ -49,17 +51,20 @@
                 android:id="@+id/challengeType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/challengeMaxNum"/>
+                android:layout_below="@id/challengeMaxNum" android:fontFamily="@font/amiri"
+                android:textStyle="bold"
+                android:textColor="#C86D0101" android:text="test" android:textSize="18sp"/>
         <TextView
                 android:id="@+id/challengeMake"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="87dp"
+                android:layout_height="25dp"
                 android:textStyle="bold|italic"
                 android:textAllCaps="true"
                 android:textAlignment="textStart"
 
                 android:layout_marginRight="16dp" android:layout_marginLeft="232dp" android:layout_alignParentEnd="true"
-                android:layout_marginEnd="22dp" android:layout_marginTop="75dp" android:layout_alignParentTop="true"/>
+                android:layout_marginEnd="10dp" android:layout_marginTop="75dp" android:layout_alignParentTop="true"
+                android:text="DEFAULT" android:fontFamily="@font/aldrich" android:textColor="#0C5500"/>
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

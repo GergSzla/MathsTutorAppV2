@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta_youtube.*
 import org.jetbrains.anko.startActivity
 import org.wit.mathstutorappv2.R
@@ -33,6 +34,7 @@ class MTAYoutubeActivity: YouTubeBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mta_youtube)
+
 
         initUI()
     }
@@ -105,6 +107,22 @@ class MTAYoutubeActivity: YouTubeBaseActivity() {
         }
 
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_mta, menu)
+        if (menu != null) menu.getItem(0).setVisible(true)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.item_delete -> {
+                finish()
+            }
+            R.id.item_cancel -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 }

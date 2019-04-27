@@ -8,13 +8,15 @@
 
 
 
+
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_below="@id/toolbarMain"
             android:fillViewport="true">
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
+                      android:orientation="vertical"
+                      android:padding="5dp">
 
 
             <!-- Addition section-->
@@ -23,32 +25,39 @@
                     android:layout_margin="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/titleAddition" android:textSize="24sp"
-                    android:textStyle="bold" android:textAlignment="center"/>
+                    android:textStyle="bold" android:textAlignment="center" android:textColor="#000000"/>
 
                 <com.google.android.youtube.player.YouTubePlayerView
                         android:id="@+id/youtubePlayerAddition"
-                        android:layout_margin="4dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
 
-                <Button
-                        android:id="@+id/btnPlayAddition"
-                        android:layout_marginTop="18dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:text="@string/btn_ytAddition"/>
-                <Button
-                        android:id="@+id/btnStopADD"
-                        android:layout_marginTop="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:text="@string/btnStop"/>
+            <Button
+                    android:id="@+id/btnPlayAddition"
+                    android:layout_marginTop="18dp"
+                    android:layout_height="68dp"
+                    android:layout_width="match_parent"
+                    android:background="#ff0000"
+                    android:foreground="@drawable/play_btn_icon"
+                    android:foregroundGravity="center"
+                    android:text="\n\n\nAddition  Playlist"
+                    android:textColor="#000000"
+                    android:textAlignment="center"/>
+            <Button
+                    android:id="@+id/btnStopADD"
+                    android:layout_marginTop="2dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:foreground="@drawable/stop_btn_icon"
+                    android:foregroundGravity="center" android:background="#282828"/>
             <TextView
                     android:text='This playlist aims to teach people how to do basic addition. The playlist will run through three different videos, going into great detail on how to solve addition problems. \nNOTE: Videos can be navigated through the YouTube videos arrows. \n\nContents: \n1.) "Maths - Two digit addition with carryover" by Bodhaguru \n2.) "Math Antics - Multi-Digit Addition" by Math Antics \n3.) "Addition in Maths" by tecmath \n\n Once you feel confident to move on from the current playlist, please press the Stop button below the video and move on to the next playlist.'
                     android:layout_margin="6dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/additionDesc"/>
+                    android:layout_height="wrap_content" android:id="@+id/additionDesc"
+                    android:textAlignment="textStart" android:textColor="#000000" android:fontFamily="@font/coda"
+                    android:textSize="16sp"/>
 
 
             <!-- Subtraction section-->
@@ -59,7 +68,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/titleSubtraction" android:textSize="24sp"
-                    android:textStyle="bold" android:textAlignment="center"/>
+                    android:textStyle="bold" android:textAlignment="center" android:textColor="#000000"/>
 
                 <com.google.android.youtube.player.YouTubePlayerView
                         android:id="@+id/youtubePlayerSubtraction"
@@ -68,24 +77,33 @@
                         android:layout_height="wrap_content"/>
 
 
-                <Button
-                        android:id="@+id/btnPlaySubtraction"
-                        android:layout_marginTop="18dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:text="@string/btn_ytSubtraction"/>
+            <Button
+                    android:id="@+id/btnPlaySubtraction"
+                    android:layout_marginTop="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:background="#ff0000"
+                    android:foreground="@drawable/play_btn_icon"
+                    android:foregroundGravity="center"
+                    android:text="\n\n\nSubtraction  Playlist"
+                    android:textColor="#000000"
+                    android:textAlignment="center"/>
                 <Button
                         android:id="@+id/btnStopSUB"
-                        android:layout_marginTop="0dp"
+                        android:layout_marginTop="2dp"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:text="@string/btnStop"/>
+                        android:foreground="@drawable/stop_btn_icon"
+                        android:foregroundGravity="center" android:background="#282828"/>
 
-                <TextView
-                        android:text='This playlist aims to teach people how to do basic subtraction. The playlist will run through four different videos, going into great detail on how to solve subtraction problems. Each video helps with harder problems than the one before. \nNOTE: Videos can be navigated through the YouTube videos arrows. \n\nContents: \n1.) "Math Antics - Multi-Digit Subtraction" by Math Antics \n2.) "Maths - Three digit subtraction - English" by Bodhaguru \n3.) "Subtracting - Large numbers" by Math Meeting \n4.) "Subtraction Trick - avoid the borrowing! Easy maths lesson." by tecmath \n\n Once you feel confident to move on from the current playlist, please press the Stop button below the video and move on to the next playlist.'
-                        android:layout_margin="6dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/subtractionDesc"/>
+            <TextView
+                    android:text='This playlist aims to teach people how to do basic subtraction. The playlist will run through four different videos, going into great detail on how to solve subtraction problems. Each video helps with harder problems than the one before. \nNOTE: Videos can be navigated through the YouTube videos arrows. \n\nContents: \n1.) "Math Antics - Multi-Digit Subtraction" by Math Antics \n2.) "Maths - Three digit subtraction - English" by Bodhaguru \n3.) "Subtracting - Large numbers" by Math Meeting \n4.) "Subtraction Trick - avoid the borrowing! Easy maths lesson." by tecmath \n\n Once you feel confident to move on from the current playlist, please press the Stop button below the video and move on to the next playlist.'
+                    android:layout_margin="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/subtractionDesc"
+                    android:textAlignment="textStart" android:textColor="#000000" android:fontFamily="@font/coda"
+                    android:textSize="16sp"
+            />
 
 
             <!-- Division section-->
@@ -96,7 +114,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/titleDivision" android:textSize="24sp"
-                    android:textStyle="bold" android:textAlignment="center"/>
+                    android:textStyle="bold" android:textAlignment="center" android:textColor="#000000"/>
 
             <com.google.android.youtube.player.YouTubePlayerView
                     android:id="@+id/youtubePlayerDivision"
@@ -110,19 +128,27 @@
                     android:layout_marginTop="18dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:text="@string/btn_ytDivision"/>
+                    android:background="#ff0000"
+                    android:foreground="@drawable/play_btn_icon"
+                    android:foregroundGravity="center"
+                    android:text="\n\n\nDivision  Playlist"
+                    android:textColor="#000000"
+                    android:textAlignment="center"/>
 
             <Button
                     android:id="@+id/btnStopDIV"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="2dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:text="@string/btnStop"/>
+                    android:foreground="@drawable/stop_btn_icon"
+                    android:foregroundGravity="center" android:background="#282828"/>
             <TextView
                     android:text='This playlist aims to teach people how to do basic and advanced division. The playlist will run through four different videos, going into great detail on how to solve division problems. Each video helps with harder problems than the one before and even goes into working with decimals for the last video. \nNOTE: Videos can be navigated through the YouTube videos arrows. \n\nContents: \n1.) "Math Antics - Basic Division" by Math Antics \n2.) "Math Antics - Long Division" by Math Antics \n3.) "Math Antics - Long Division with 2-Digit Divisors" by Math Antics \n4.) "Dividing Decimals - Not So Easy!" by The Organic Chemistry Tutor \n\n Once you feel confident to move on from the current playlist, please press the Stop button below the video and move on to the next playlist.'
                     android:layout_margin="6dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/divisionDesc"/>
+                    android:layout_height="wrap_content" android:id="@+id/divisionDesc"
+                    android:textAlignment="textStart" android:textColor="#000000" android:fontFamily="@font/coda"
+                    android:textSize="16sp"/>
 
 
             <!-- Multiplication section-->
@@ -133,7 +159,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/titleMultiplication" android:textSize="24sp"
-                    android:textStyle="bold" android:textAlignment="center"/>
+                    android:textStyle="bold" android:textAlignment="center" android:textColor="#000000"/>
 
             <com.google.android.youtube.player.YouTubePlayerView
                     android:id="@+id/youtubePlayerMultiplication"
@@ -147,20 +173,29 @@
                     android:layout_marginTop="18dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:text="@string/btn_ytMultiplication"/>
+                    android:background="#ff0000"
+                    android:foreground="@drawable/play_btn_icon"
+                    android:foregroundGravity="center"
+                    android:text="\n\n\nMultiplication  Playlist"
+                    android:textColor="#000000"
+                    android:textAlignment="center"/>
 
             <Button
                     android:id="@+id/btnStopMUL"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="2dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:text="@string/btnStop"/>
+                    android:foreground="@drawable/stop_btn_icon"
+                    android:foregroundGravity="center" android:background="#282828"/>
 
             <TextView
                     android:text='This playlist aims to teach people how to do basic and advanced multiplication. The playlist will run through four different videos, going into great detail on how to solve division problems. Each video helps with harder problems than the one before and even goes into working with decimals for the last video similarily to the last video in the division playlist. \nNOTE: Videos can be navigated through the YouTube videos arrows. \n\nContents: \n1.) "Math Antics - Multi-Digit Multiplication Pt 1" by Math Antics \n2.) "Math Antics - Multi-Digit Multiplication Pt 2" by Math Antics \n3.) "Multiplying - Large numbers" by Math Meeting \n4.) "Multiplying Decimals Made Easy!" by The Organic Chemistry Tutor \n\n Once you feel confident to move on from the current playlist, please press the Stop button below the video and move on to the next playlist.'
                     android:layout_margin="6dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/multiplicationDesc"/>
+                    android:layout_height="wrap_content" android:id="@+id/multiplicationDesc"
+                    android:textAlignment="textStart" android:textColor="#000000" android:fontFamily="@font/coda"
+                    android:textSize="16sp"/>
         </LinearLayout>
     </ScrollView>
+
 </android.support.design.widget.CoordinatorLayout>

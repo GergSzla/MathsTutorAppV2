@@ -30,6 +30,7 @@
         <meta-data
                 android:name="com.google.android.youtube.API_KEY"
                 android:value="@string/youtube_key" />
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
 
         <activity android:name=".activities.MTAYoutubeActivity"
                   android:screenOrientation="portrait"/>

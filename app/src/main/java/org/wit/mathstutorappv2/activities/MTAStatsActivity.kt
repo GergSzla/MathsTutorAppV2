@@ -20,6 +20,8 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.longToast
 import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.main.MainApp
+import org.wit.mathstutorappv2.models.StatsModel
+import org.wit.mathstutorappv2.models.statss
 import vip.frendy.chart.EChartView
 import vip.frendy.chart.EChartWebView
 
@@ -27,12 +29,22 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
 
 
     lateinit var app: MainApp
+    var stats = StatsModel()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mta_stats)
 
+
+
+        totalSessions.setText(statss.sessionsTaken.toString())
+        passedSessionsNo.setText(statss.sessionsPassed.toString())
+        failedSessionsNo.setText(statss.sessionsFailed.toString())
+
+        totalQuestions.setText(statss.totalQuestionsAnswered.toString())
+        totalQuestionsCorrectNo.setText(statss.totalAnsweredCorrect.toString())
+        totalQuestionsWrongNo.setText(statss.totalAnsweredWrong.toString())
 
         chartView.setType(1)
         chartView.setDataSource(this)
@@ -51,7 +63,7 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
     fun getPieChartOptions01(): GsonOption {
         val option = GsonOption()
         option.tooltip().trigger(Trigger.item).formatter("{a} <br/>{b} : {c} ({d}%)")
-        option.legend().data("Correct", "Wrong" );
+        option.legend().data("Wrong","Correct"  );
 
         val pie = getPie01().center("50%", "45%").radius("50%")
         pie.label().normal().show(true).formatter("{b}{c}({d}%)")
@@ -61,8 +73,9 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
 
     fun getPie01(): Pie {
         return Pie().name("Questions Answered").data(
-            PieData("Correct", 3),
-            PieData("Wrong", 4)
+            PieData("Wrong", statss.totalAnsweredWrong),
+            PieData("Correct", statss.totalAnsweredCorrect)
+
 
         )
     }
@@ -70,7 +83,7 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
     fun getPieChartOptions(): GsonOption {
         val option = GsonOption()
         option.tooltip().trigger(Trigger.item).formatter("{a} <br/>{b} : {c} ({d}%)")
-        option.legend().data("Passed","Failed" );
+        option.legend().data("Failed","Passed" );
 
         val pie = getPie().center("50%", "45%").radius("50%")
         pie.label().normal().show(true).formatter("{b}{c}({d}%)")
@@ -80,8 +93,9 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
 
     fun getPie(): Pie {
         return Pie().name("Sessions Pass/Fail").data(
-            PieData("Passed", 3),
-            PieData("Failed", 1)
+            PieData("Failed", statss.sessionsFailed),
+            PieData("Passed", statss.sessionsPassed)
+
         )
     }
 

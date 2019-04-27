@@ -5,7 +5,7 @@
     <!--add challenge/activity_mta-->
     <string name="hint_challengeName">Challenge Name</string>
     <string name="hint_challengeMinNum">Minimum Number (0 - 500) </string>
-    <string name="hint_challengeMaxNum">Maximum Number (Your Minimum Number - 4999)</string>
+    <string name="hint_challengeMaxNum">Maximum Number (Your Minimum Number - 5000)</string>
     <string name="radio_addition">Addition (+)</string>
     <string name="radio_subtraction">Subtraction (-)</string>
     <string name="radio_division">Division (÷)</string>
@@ -39,10 +39,7 @@
     <string name="menu_deleteChallenge">Delete</string>
     <string name="title_activity_placemark_maps">Map of all Placemarks</string>
 
-    <string name="btn_ytAddition">Play Addition Playlist</string>
-    <string name="btn_ytSubtraction">Play Subtraction Playlist</string>
-    <string name="btn_ytDivision">Play Division Playlist</string>
-    <string name="btn_ytMultiplication">Play Multiplication Playlist</string>
-    <string name="btnStop">Stop</string>
+
+
 
 </resources>

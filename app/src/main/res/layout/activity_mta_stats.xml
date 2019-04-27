@@ -15,7 +15,9 @@
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="vertical">
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:padding="10dp"
+                android:background="#9C4580F5">
 
 
             <TextView
@@ -23,63 +25,61 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Sessions Taken" android:textAlignment="center" android:textAllCaps="true"
-                    android:textStyle="bold" android:textSize="20sp"/>
+                    android:textStyle="bold" android:textSize="20sp" android:textColor="#000000"
+                    android:background="#D9ABABAB"/>
             <TextView
                     android:text="0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/totalSessions" android:textStyle="bold"
-                    android:textAlignment="center" android:textSize="38sp"/>
+                    android:textAlignment="center" android:textSize="38sp" android:textColor="#000000"
+                    android:background="#D9ABABAB"/>
 
 
             <!--Passed Row-->
-            <TableRow
-                    android:layout_width="164dp"
-                    android:layout_height="wrap_content">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:background="#D9ABABAB">
                 <TextView
+                        android:layout_marginLeft="50sp"
                         android:id="@+id/passedSessions"
-                        android:layout_width="64dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Passed: "
-                        android:layout_marginTop="20dp" android:textSize="15sp"/>
+                        android:layout_marginTop="20dp" android:textSize="14sp" android:fontFamily="@font/aldrich"
+                        android:textColor="#518DEE" android:textStyle="bold"/>
                 <TextView
                         android:id="@+id/passedSessionsNo"
                         android:layout_width="52dp"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_marginTop="20dp" android:textSize="15sp" android:textStyle="bold"
-                        android:textAlignment="center"/>
-            </TableRow>
-
-            <!--Failed Row-->
-            <TableRow
-                    android:layout_width="164dp"
-                    android:layout_height="wrap_content">
-
+                        android:textAlignment="center" android:textColor="#5188F0"/>
                 <TextView
+                        android:layout_marginLeft="50sp"
                         android:id="@+id/failedSessions"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
                         android:text="Failed: "
-                        android:layout_marginTop="20dp" android:textSize="15sp"/>
+                        android:layout_marginTop="20dp" android:textSize="14sp" android:fontFamily="@font/aldrich"
+                        android:textStyle="bold" android:textColor="#F0E03A19"/>
                 <TextView
                         android:id="@+id/failedSessionsNo"
                         android:layout_width="52dp"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_marginTop="20dp" android:textSize="15sp" android:textStyle="bold"
-                        android:textAlignment="center"/>
-            </TableRow>
+                        android:textAlignment="center" android:fontFamily="sans-serif" android:textColor="#F0E03A19"/>
+            </LinearLayout>
+
+            <!--Failed Row-->
+
+
+
+
 
             <!--Dividing Line-->
 
-
-            <View
-                    android:layout_marginTop="50dp"
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="29dp"
-                    android:background="#00000000"
-            />
 
             <!--Total asked questions-->
             <TextView
@@ -87,46 +87,52 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Total Questions Answered" android:textAlignment="center" android:textAllCaps="true"
-                    android:textStyle="bold" android:textSize="20sp" android:id="@+id/textView5"/>
+                    android:textStyle="bold" android:textSize="20sp" android:id="@+id/textView5"
+                    android:background="#D9ABABAB" android:textColor="#000000"/>
             <TextView
                     android:text="0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/totalQuestions" android:textStyle="bold"
-                    android:textAlignment="center" android:textSize="38sp"/>
+                    android:textAlignment="center" android:textSize="38sp" android:background="#D9ABABAB"
+                    android:textColor="#000000"/>
             <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="40dp">
+                    android:layout_height="40dp" android:background="#D9ABABAB">
                 <TextView
                         android:id="@+id/totalQuestionsCorrect"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Correctly Answered:"
-                        android:layout_marginTop="20dp" android:textSize="15sp"/>
+                        android:layout_marginTop="20dp" android:textSize="14sp" android:fontFamily="@font/aldrich"
+                        android:textColor="#5188F0" android:textStyle="bold"/>
                 <TextView
                         android:id="@+id/totalQuestionsCorrectNo"
                         android:layout_width="52dp"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_marginTop="20dp" android:textSize="15sp" android:textStyle="bold"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center" android:textColor="#5188F0"/>
             </TableRow>
             <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="41dp">
+                    android:layout_height="41dp" android:background="#D9ABABAB">
 
                 <TextView
                         android:id="@+id/totalQuestionsWrong"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Wrongly Answered:"
-                        android:layout_marginTop="20dp" android:textSize="15sp"/>
+                        android:layout_marginTop="20dp" android:textSize="14sp" android:fontFamily="@font/aldrich"
+                        android:textColor="#F0E03A19" android:textStyle="bold"/>
                 <TextView
+                        android:layout_marginLeft="11dp"
                         android:id="@+id/totalQuestionsWrongNo"
                         android:layout_width="52dp"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_marginTop="20dp" android:textSize="15sp" android:textStyle="bold"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center" android:textColor="#F0E03A19"/>
+
             </TableRow>
 
             <vip.frendy.chart.EChartView

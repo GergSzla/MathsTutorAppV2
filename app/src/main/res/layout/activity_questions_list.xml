@@ -27,7 +27,14 @@
             android:fillViewport="true">
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
+                      android:orientation="vertical"
+                      android:background="#FFF8DC">
+            <TextView
+                    android:text="\n NOTE: \n1.) Write down your answers on paper. \n2.) Tap the card to reveal the answers. \n3.) Compare your answers to the answers given. \n4.) Keep your scores."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView"
+                    android:padding="10dp" android:textColor="#000000" android:fontFamily="@font/adamina"
+                    android:background="#DA4580F5"/>
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerViewQuestion"
                     android:layout_width="match_parent"

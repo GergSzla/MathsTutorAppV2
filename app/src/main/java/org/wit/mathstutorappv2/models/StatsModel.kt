@@ -1,31 +1,17 @@
 package org.wit.mathstutorappv2.models
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 data class StatsModel (
-                  var totalScore:Int = 0,
-                  var sessionsTaken:Int = 0,
+    var sessionsTaken:Int = 0,
+    var sessionsPassed:Int = 0,
+    var sessionsFailed:Int = 0,
 
-                  var addResultAvg: String ="",
-                  var subResultAvg: String ="",
-                  var divResultAvg: String ="",
-                  var multResultAvg: String ="",
+    var totalQuestionsAnswered:Int = 0,
+    var totalAnsweredCorrect:Int = 0,
+    var totalAnsweredWrong: Int = 0
 
-                  var addCorrect: String ="",
-                  var addWrong: String ="",
-
-                  var subCorrect: String ="",
-                  var subWrong: String ="",
-
-                  var divCorrect: String ="",
-                  var divWrong: String ="",
-
-                  var multCorrect: String ="",
-                  var multWrong: String =""
+)
 
 
 
-
-                  ) : Parcelable
+    var statss = StatsModel(sessionsTaken = 0, sessionsPassed = 0, sessionsFailed = 0, totalQuestionsAnswered = 0, totalAnsweredCorrect = 0, totalAnsweredWrong= 0)
