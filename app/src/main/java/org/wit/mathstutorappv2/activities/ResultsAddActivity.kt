@@ -47,7 +47,7 @@ class ResultsAddActivity : AppCompatActivity(), AnkoLogger {
             statss.totalAnsweredCorrect += lastSessionScore.toInt()
             statss.totalAnsweredWrong += (10-lastSessionScore.toInt())
 
-            
+            app.stats.saveStats(statss)
             finish()
 
         }

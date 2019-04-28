@@ -38,6 +38,12 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
 
 
 
+
+
+        app = application as MainApp
+
+        app.stats.getStats()
+
         totalSessions.setText(statss.sessionsTaken.toString())
         passedSessionsNo.setText(statss.sessionsPassed.toString())
         failedSessionsNo.setText(statss.sessionsFailed.toString())
@@ -48,7 +54,6 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
 
         chartView.setType(1)
         chartView.setDataSource(this)
-        app = application as MainApp
     }
 
     override fun markChartOptions(): GsonOption {

@@ -10,4 +10,3 @@ data class MTAModel(var id: Long = 0,
                     var maxNum: String = "",
                     var type: String = "",
                     var make: String ="") : Parcelable
-

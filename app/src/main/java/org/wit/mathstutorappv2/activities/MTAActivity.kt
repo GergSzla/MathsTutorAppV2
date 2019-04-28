@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta.challengeMaxNum
 import kotlinx.android.synthetic.main.activity_mta.challengeMinNum

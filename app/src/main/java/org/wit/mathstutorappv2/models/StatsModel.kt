@@ -1,14 +1,16 @@
 package org.wit.mathstutorappv2.models
 
+import com.google.gson.annotations.SerializedName
+
 
 data class StatsModel (
-    var sessionsTaken:Int = 0,
-    var sessionsPassed:Int = 0,
-    var sessionsFailed:Int = 0,
+    @SerializedName("sessionsTaken") var sessionsTaken:Int = 0,
+    @SerializedName("sessionsPassed")var sessionsPassed:Int = 0,
+    @SerializedName("sessionsFailed")var sessionsFailed:Int = 0,
 
-    var totalQuestionsAnswered:Int = 0,
-    var totalAnsweredCorrect:Int = 0,
-    var totalAnsweredWrong: Int = 0
+    @SerializedName("totalQuestionsAnswered")var totalQuestionsAnswered:Int = 0,
+    @SerializedName("totalAnsweredCorrect")var totalAnsweredCorrect:Int = 0,
+    @SerializedName("totalAnsweredWrong")var totalAnsweredWrong: Int = 0
 
 )
 
