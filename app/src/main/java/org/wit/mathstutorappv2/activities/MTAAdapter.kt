@@ -38,11 +38,22 @@ class MTAAdapter constructor(private var challenges: List<MTAModel>,
             itemView.challengeType.text = challenge.type
             itemView.challengeMake.text = challenge.make
 
+
+            /*
+            If the card is held, the onMTAHold(challenge) will take in the challenge that was held
+             and the onMTAHold() function will run (MTAListActivity.kt). This will start the activity with the
+             intent of editing that particular card.
+             */
             itemView.setOnLongClickListener {
                 listener.onMTAHold(challenge)
                 true
             }
 
+            /*
+            If the card is clicked/pressed, the onMTAClick(challenge) will take in the challenge that was clicked
+             and the onMTAClick() function will run (MTAListActivity.kt). This will start the activity with the
+             intent of starting a challenge.
+             */
             itemView.setOnClickListener {
                 listener.onMTAClick(challenge)
             }

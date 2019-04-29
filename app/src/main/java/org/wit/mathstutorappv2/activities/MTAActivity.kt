@@ -1,5 +1,9 @@
 package org.wit.mathstutorappv2.activities
 
+/*
+This class provides functionality to the activity_mta.xml layout. This is for creating new challenge cards.
+ */
+
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import org.wit.mathstutorappv2.R
@@ -9,8 +13,6 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta.challengeMaxNum
 import kotlinx.android.synthetic.main.activity_mta.challengeMinNum
@@ -46,6 +48,10 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
 
 
 
+        /*
+        REFERENCE: https://android--code.blogspot.com/2018/02/android-kotlin-radiogroup-and.html
+        Radio buttons for the challenges.
+         */
         radio_group_type.setOnCheckedChangeListener(
             RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 val radio: RadioButton = findViewById(checkedId)
@@ -58,8 +64,8 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             challenge = intent.extras.getParcelable<MTAModel>("challenge_edit ")
 
             var id: Int = radio_group_type.checkedRadioButtonId
-            if (id!=-1){ // If any radio button checked from radio group
-                // Get the instance of radio button using id
+                if (id!=-1){                                         // If any radio button checked from radio group
+                                                                     // Get the instance of radio button using id
                 val radio:RadioButton = findViewById(id)
                 Toast.makeText(applicationContext,"Challenge Type : ${radio.text}",
                     Toast.LENGTH_SHORT).show()
@@ -83,8 +89,10 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
 
 
 
-        btnAdd.setOnClickListener {
-
+        btnAdd.setOnClickListener {                 /*
+                                                    button to add challenges
+                                                    reused buttons.
+                                                    */
             var id: Int = radio_group_type.checkedRadioButtonId
             if (id!=-1){ // If any radio button checked from radio group
                 // Get the instance of radio button using id
@@ -105,22 +113,42 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             challenge.maxNum = challengeMaxNum.text.toString()
             challenge.make = "custom"
 
+
+            /*
+            minimum range cannot exceed 500, this statement autosets the minimum number to 500
+            if it has exceeded 500.
+             */
             if(challenge.minNum.toInt() < 0  || challenge.minNum.toInt() > 500 ){
+
                 var maxMinNum = 500
                 challenge.minNum = maxMinNum.toString()
                 longToast("Minimum number/range cannot exceed 500! \nNOTE: Minimum number auto-set to: 500")
             }
+
+            /*
+            max number cannot be less than the minimum range.
+            If it is less, the statement sets it to 20 int more than the min no
+            for range.
+             */
             if(challenge.maxNum.toInt() <= challenge.minNum.toInt()){
                 var minMaxNum = challenge.minNum.toInt() + 20
                 challenge.maxNum = minMaxNum.toString()
                 longToast("Maximum number/range cannot be less than minimum number! \nNOTE: Maximum number has been set to ${challenge.maxNum} ")
             }
+
+            /*
+            maximum range cannot exceed 5000, this statement autosets the minimum number to 5000
+            if it has exceeded 5000.
+             */
             if(challenge.maxNum.toInt() > 5000 ){
                 var maxMaxNum = 5000
                 challenge.maxNum = maxMaxNum.toString()
                 longToast("Maximum number/range cannot exceed 5000! \nNOTE: Maximum number auto-set to: 5000")
             }
 
+            /*
+            No fields can be left empty when creating a challenge
+             */
             if (challenge.name.isEmpty() || challenge.minNum.isEmpty() || challenge.maxNum.isEmpty() || challenge.type.isEmpty()) {
                 toast(R.string.enter_challenge_name_num)
             } else {

@@ -10,7 +10,6 @@ import org.wit.mathstutorappv2.helpers.write
 
 var gson = Gson()
 val JSON_FILE_STATS = "stats.json"
-val gsonBuilderStats = GsonBuilder().setPrettyPrinting().create()
 
 class StatsJSONStore: StatsStore, AnkoLogger{
 
@@ -29,17 +28,31 @@ class StatsJSONStore: StatsStore, AnkoLogger{
     }
 
     override fun saveStats(statss: StatsModel){
-        getStats()
-        var foundStats: StatsModel = getStats()
+        getStats() //gets current stats
+        var foundStats: StatsModel = getStats() //assigns current stats
         if(foundStats != null) {
-            foundStats.sessionsTaken = statss.sessionsTaken
+            foundStats.sessionsTaken = statss.sessionsTaken  //updates all statistics values
             foundStats.sessionsPassed = statss.sessionsPassed
             foundStats.sessionsFailed = statss.sessionsFailed
             foundStats.totalQuestionsAnswered = statss.totalQuestionsAnswered
             foundStats.totalAnsweredCorrect = statss.totalAnsweredCorrect
             foundStats.totalAnsweredWrong = statss.totalAnsweredWrong
         }
-        serialize()
+        serialize() //writes to json file
+    }
+
+    override fun deleteStats (statss: StatsModel){
+        getStats()
+        var foundStats: StatsModel = getStats()
+        if(foundStats != null) { //on btnReset.click: all values set to 0
+            foundStats.sessionsTaken = 0
+            foundStats.sessionsPassed = 0
+            foundStats.sessionsFailed = 0
+            foundStats.totalQuestionsAnswered =0
+            foundStats.totalAnsweredCorrect = 0
+            foundStats.totalAnsweredWrong = 0
+        }
+        serialize() //saves again to json
     }
 
     private fun serialize(){

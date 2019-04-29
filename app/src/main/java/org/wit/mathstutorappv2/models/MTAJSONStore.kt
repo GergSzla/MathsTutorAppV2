@@ -48,7 +48,7 @@ class MTAJSONStore : MTAStore, AnkoLogger, QuestionStore {
     }
 
     override fun createQuestions(question: Question){
-        questions.add(question)
+        questions.add(question) //temporarily creates the questions to hold in memory but doesnt save
 
     }
 

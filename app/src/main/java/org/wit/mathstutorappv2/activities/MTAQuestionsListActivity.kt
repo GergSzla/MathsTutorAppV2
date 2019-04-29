@@ -1,5 +1,10 @@
 package org.wit.mathstutorappv2.activities
 
+/*
+This page is responsible for listing the card questions in the recyclerViews.
+New questions generated every time the user enters into a challenge.
+ */
+
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -7,19 +12,13 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_mta_list.toolbarMain
 import kotlinx.android.synthetic.main.activity_questions_list.*
-import kotlinx.android.synthetic.main.activity_results_add.*
-import kotlinx.android.synthetic.main.card_challenge.*
 import org.jetbrains.anko.longToast
 import org.wit.mathstutorappv2.main.MainApp
 import org.wit.mathstutorappv2.models.MTAModel
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.models.Question
-import kotlin.String as String1
-
-//import org.wit.mathstutorappv2.models.Supplier
-//import org.wit.mathstutorappv2.models.Supplier.questions
+//import kotlin.String as String1
 
 
 class MTAQuestionsListActivity : AppCompatActivity() {
@@ -42,19 +41,23 @@ class MTAQuestionsListActivity : AppCompatActivity() {
         val adapter = QuestionsAdapter(this, app.questions.findAllQuestions())
         recyclerViewQuestion.adapter = adapter
 
-
         if (intent.hasExtra("challenge_start ")) {
             app.challenges.findAll()
-            challenge = intent.extras.getParcelable<MTAModel>("challenge_start ")
+            challenge = intent.extras.getParcelable<MTAModel>("challenge_start ") //gets the challenge that was selected
             app.questions.deleteQuestions(question) //if any questions are left in the list from another challenge, this clears it all to start from scratch
             longToast("${challenge.name} Started!")
 
+            /*
+            takes in the min and max numbers of the challenge selected
+             */
             var QMinNo = challenge.minNum
             var QMaxNo = challenge.maxNum
 
-
             // q = 10 questions
             for (q in 0 until 10) {
+                /*
+                gets two random numbers between the min and max number values
+                 */
                 var randomNumber1 = (QMinNo.toInt()..QMaxNo.toInt()).random()
                 var randomNumber2 = (QMinNo.toInt()..QMaxNo.toInt()).random()
 
@@ -113,28 +116,11 @@ class MTAQuestionsListActivity : AppCompatActivity() {
 
             }
             loadQuestions()
-
-
-
-            // q = 10 questions
-            /* for (q in 0 until 10){
-                if ((randomNumber1 > QMinNo.toInt() && randomNumber1 < QMaxNo.toInt())&&(randomNumber2 > QMinNo.toInt() && randomNumber2 < QMaxNo.toInt())){
-                    numberX.setText(randomNumber1.toString())
-                    numberY.setText(randomNumber2.toString())
-                }
-            }*/
-
-
         }
-
-
     }
-
-
 
     private fun loadQuestions() {
         showQuestions(app.questions.findAllQuestions())
-
     }
 
     fun showQuestions(questions: List<Question>) {
@@ -152,16 +138,20 @@ class MTAQuestionsListActivity : AppCompatActivity() {
         when (item?.itemId) {
             R.id.item_cancel -> {
 
+                /*
+                 if canceled, questions are deleted,
+                 if reopened, new questions are generated
+                 */
+
                 app.questions.deleteQuestions(question)
                 finish()
             }
             R.id.item_finish -> {
+
+                //starts activity for ResultAddActivity.kt
                 startActivity<ResultsAddActivity>()
             }
         }
         return super.onOptionsItemSelected(item)
     }
-
-
-
 }

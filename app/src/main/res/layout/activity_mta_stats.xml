@@ -75,9 +75,6 @@
             <!--Failed Row-->
 
 
-
-
-
             <!--Dividing Line-->
 
 
@@ -141,6 +138,11 @@
                     android:layout_height="519dp"
                     android:id="@+id/chartView">
             </vip.frendy.chart.EChartView>
+            <Button
+                    android:text="Reset Statistics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/btnReset" android:background="#C06503"
+                    android:textAlignment="center"/>
 
         </LinearLayout>
 

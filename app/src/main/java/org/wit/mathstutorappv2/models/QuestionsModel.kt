@@ -1,13 +1,8 @@
 package org.wit.mathstutorappv2.models
 
 data class Question (var id:Int = 0,
-                     var noX:String ="",
+                     var noX:String ="",    //number a in ... a + b = c
                      var symbol:String = "",
-                     var noY:String = "",
-                     var questionAnswer:Double = 0.0
+                     var noY:String = "",   //number b in ... a + b = c
+                     var questionAnswer:Double = 0.0  //(answer) number c in ... a + b = c
                      )
-
-/*object Supplier{
-
-    var questions = listOf<Question>(Question(id = 0, noX = "", symbol = "", noY = "", questionAnswer = 0))
-}*/

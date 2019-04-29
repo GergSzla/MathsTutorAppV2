@@ -1,49 +1,46 @@
 package org.wit.mathstutorappv2.activities
 
+/*
+This page gives functionality to the activity_mta_stats.xml
+Page: displays the users statistics aided with pie charts to
+show a more visual representation of their progress.
+The charts implementation design belongs to frendyxzc (github -- link below)
+ */
+/*
+REFERENCE: https://github.com/frendyxzc/Charts
+ */
+
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.github.abel533.echarts.axis.CategoryAxis
-import com.github.abel533.echarts.axis.ValueAxis
-import com.github.abel533.echarts.code.Symbol
 import com.github.abel533.echarts.code.Trigger
-import com.github.abel533.echarts.data.LineData
 import com.github.abel533.echarts.data.PieData
 import com.github.abel533.echarts.json.GsonOption
-import com.github.abel533.echarts.series.Line
 import com.github.abel533.echarts.series.Pie
-import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta_stats.*
-import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.longToast
+import org.jetbrains.anko.toast
 import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.main.MainApp
-import org.wit.mathstutorappv2.models.StatsModel
 import org.wit.mathstutorappv2.models.statss
-import vip.frendy.chart.EChartView
 import vip.frendy.chart.EChartWebView
 
 class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
 
-
     lateinit var app: MainApp
-    var stats = StatsModel()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mta_stats)
 
-
-
-
-
         app = application as MainApp
 
-        app.stats.getStats()
+        app.stats.getStats()        //gets existing statistics from Json
 
+        /*
+        Sets activity_mta_stats.xml values to the appropriate value from the StatsModel.kt and json
+         */
         totalSessions.setText(statss.sessionsTaken.toString())
         passedSessionsNo.setText(statss.sessionsPassed.toString())
         failedSessionsNo.setText(statss.sessionsFailed.toString())
@@ -52,12 +49,32 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
         totalQuestionsCorrectNo.setText(statss.totalAnsweredCorrect.toString())
         totalQuestionsWrongNo.setText(statss.totalAnsweredWrong.toString())
 
+        /*
+            if no challenges have been completed or stats are reset,
+            charts will not appear due to null value
+         */
+        if(statss.sessionsTaken.equals(0)){
+            toast("No charts to load! \nComplete at least 1 challenge.")
+        }
+
+
         chartView.setType(1)
         chartView.setDataSource(this)
+
+        /*
+        Reset button resets the statistics page and sets all values to 0
+         */
+        btnReset.setOnClickListener{
+            app.stats.deleteStats(statss)
+            toast("Your statistics have been reset.")
+            finish()
+        }
     }
 
+
+
     override fun markChartOptions(): GsonOption {
-        longToast("Loading Page...") //to hide original foreign "Loading Page..." toast which was not removable
+        longToast("Loading Page...\nCharts Loading...") //to hide original foreign "Loading Page..." toast which was not removable
         return getPieChartOptions()
     }
 
@@ -68,16 +85,17 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
     fun getPieChartOptions01(): GsonOption {
         val option = GsonOption()
         option.tooltip().trigger(Trigger.item).formatter("{a} <br/>{b} : {c} ({d}%)")
-        option.legend().data("Wrong","Correct"  );
+        option.legend().data("Wrong","Correct"  )       //Legend for the charts
 
-        val pie = getPie01().center("50%", "45%").radius("50%")
+        val pie = getPieQuestionsAnswered().center("50%", "45%").radius("50%")
         pie.label().normal().show(true).formatter("{b}{c}({d}%)")
         option.series(pie)
         return option
     }
 
-    fun getPie01(): Pie {
+    fun getPieQuestionsAnswered(): Pie {
         return Pie().name("Questions Answered").data(
+            //sets the two pie values to the values taken from the StatsModel and json
             PieData("Wrong", statss.totalAnsweredWrong),
             PieData("Correct", statss.totalAnsweredCorrect)
 
@@ -90,13 +108,13 @@ class MTAStatsActivity: FragmentActivity(), EChartWebView.DataSource {
         option.tooltip().trigger(Trigger.item).formatter("{a} <br/>{b} : {c} ({d}%)")
         option.legend().data("Failed","Passed" );
 
-        val pie = getPie().center("50%", "45%").radius("50%")
+        val pie = getPieSessions().center("50%", "45%").radius("50%")
         pie.label().normal().show(true).formatter("{b}{c}({d}%)")
         option.series(pie)
         return option
     }
 
-    fun getPie(): Pie {
+    fun getPieSessions(): Pie {
         return Pie().name("Sessions Pass/Fail").data(
             PieData("Failed", statss.sessionsFailed),
             PieData("Passed", statss.sessionsPassed)
