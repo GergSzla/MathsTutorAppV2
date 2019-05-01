@@ -9,8 +9,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#9C4580F5"
-    >
+            android:background="#9C4580F5">
 
         <android.support.design.widget.AppBarLayout
                 android:id="@+id/appBarLayout"
