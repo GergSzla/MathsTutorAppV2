@@ -150,6 +150,7 @@ class MTAQuestionsListActivity : AppCompatActivity() {
 
                 //starts activity for ResultAddActivity.kt
                 startActivity<ResultsAddActivity>()
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)

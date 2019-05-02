@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta.challengeMaxNum
 import kotlinx.android.synthetic.main.activity_mta.challengeMinNum
 import kotlinx.android.synthetic.main.activity_mta.challengeName
+import kotlinx.android.synthetic.main.activity_mta_list.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.longToast
@@ -36,10 +37,7 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mta)
 
-
-
         toolbarAdd.title = title
-        //setSupportActionBar(toolbarAdd)
 
         info("MTA Activity started..")
 
@@ -175,11 +173,6 @@ class MTAActivity : AppCompatActivity(), AnkoLogger {
             Toast.makeText(applicationContext,"On click : ${radio.text}",
                 Toast.LENGTH_SHORT).show()
         }
-
-
-
-
-
     }
 
 

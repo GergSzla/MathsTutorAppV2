@@ -45,6 +45,7 @@ class ResultsAddActivity : AppCompatActivity(), AnkoLogger {
                     //amount of questions answered correctly
 
                     app.stats.saveStats(statss)             //saves stats to json file
+                    toast("Your score has been added to the statistics page.")
                     finish()
 
                 } else if(lastSessionScore.toInt() <= 4){ //if the last session score is less than or = 4, session was failed
@@ -57,6 +58,7 @@ class ResultsAddActivity : AppCompatActivity(), AnkoLogger {
                     //amount of questions answered correctly
 
                     app.stats.saveStats(statss)             //saves stats to json file
+                    toast("Your score has been added to the statistics page.")
                     finish()
 
                 }else if(lastSessionScore.toInt()< 0 || lastSessionScore.toInt() > 10 ){
