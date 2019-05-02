@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.activity_mta_list.view.*
 import kotlinx.android.synthetic.main.card_mta.view.*
 import org.wit.mathstutorappv2.R
 import org.wit.mathstutorappv2.models.MTAModel
@@ -38,7 +37,6 @@ class MTAAdapter constructor(private var challenges: List<MTAModel>,
             itemView.challengeMaxNum.text = challenge.maxNum
             itemView.challengeType.text = challenge.type
             itemView.challengeMake.text = challenge.make
-
 
 
             /*

@@ -1,6 +1,5 @@
 package org.wit.mathstutorappv2.models
 
-
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

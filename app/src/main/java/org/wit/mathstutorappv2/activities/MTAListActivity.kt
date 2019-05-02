@@ -32,16 +32,11 @@ class MTAListActivity : AppCompatActivity(), MTAListener {
         app = application as MainApp
 
         toolbarMain.title = title
-        //setSupportActionBar(toolbarMain)
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = MTAAdapter(app.challenges.findAll(), this)
         loadChallenges()
-
-
-
-
     }
 
 
@@ -96,6 +91,18 @@ class MTAListActivity : AppCompatActivity(), MTAListener {
     fun showChallenges (challenges: List<MTAModel>) {
         recyclerView.adapter = MTAAdapter(challenges, this)
         recyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    //filter for search
+    fun filter (text: String) {
+
+        val filteredChallenges: MutableList<MTAModel> = ArrayList()
+        val Challenges: List<MTAModel> = app.challenges.findAll()
+
+        for (eachChallenge in Challenges) {
+            if (eachChallenge.name!!.toLowerCase().contains(text.toLowerCase()))
+                filteredChallenges.add(eachChallenge)
+        }
     }
 
 

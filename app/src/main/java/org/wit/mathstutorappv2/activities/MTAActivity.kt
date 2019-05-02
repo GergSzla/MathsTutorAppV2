@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_mta.*
 import kotlinx.android.synthetic.main.activity_mta.challengeMaxNum
 import kotlinx.android.synthetic.main.activity_mta.challengeMinNum
 import kotlinx.android.synthetic.main.activity_mta.challengeName
-import kotlinx.android.synthetic.main.activity_mta_list.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.longToast
